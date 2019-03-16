@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "852988307320",
+    "firebase_url": "https://plan-129a0.firebaseio.com",
+    "project_id": "plan-129a0",
+    "storage_bucket": "plan-129a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852988307320:android:a8a9da7522f49362",
+        "android_client_info": {
+          "package_name": "com.example.kontrol.plan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852988307320-pho44t0rg9srhlb2iq9v9k617h5e2rg8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kontrol.plan",
+            "certificate_hash": "236baebc0c4cadebc579a9197c80f45c70cb06e1"
+          }
+        },
+        {
+          "client_id": "852988307320-s7acd2ifv18o2ban0l7is9dn7qk5fdcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbDWh8MYTE9HLnBpgqpCX4ak3CKooo9XA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852988307320-s7acd2ifv18o2ban0l7is9dn7qk5fdcr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
