@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Plan</string>
+
+    <!-- Activity Titles -->
+
+    <string name="main_activity_title">Plan</string>
+    <string name="new_group_activity_title">Create Group</string>
+    <string name="date_time_activity_title">Set Date And Time</string>
+    <string name="add_members_activity_title">Add Members</string>
+
+    <!--- Activity Titles -->
+
+    <!-- Create Plan Activity -->
+
+    <string name="planName_tag">Plan Name</string>
+    <string name="dateTime_tag">Set Date And Time Of Expiry</string>
+    <string name="et_name_hint">Enter name of plan</string>
+    <string name="button_tag">Set</string>
+    <string name="addMemebers_tag">Add Members</string>
+    <string name="tag_create_plan">Create Plan</string>
+
+    <!-- Create Plan Activity -->
+
+    <!-- Date And Time Activity -->
+
+    <string name="setDate_tag">Set Date</string>
+    <string name="setTime_tag">Set Time</string>
+    <string name="done_btn_tag">Done</string>
+
+    <!-- Date And Time Activity -->
+
+    <!-- Messages Activity -->
+    <string name="send_button_label">Send</string>
+
+    <string name="menu_title_done">Done</string>
+    <string name="title_activity_user_detail">UserDetailActivity</string>
+
+    <string name="string_enterName">Enter User Name</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="action_create">Create</string>
+
+    <string name="enter_user_name_tag">Enter User Name</string>
+
+    <string name="widget_send_messge_text">Send Message</string>
+
+    <string name="widget_plan_name_tag">Plan Name</string>
+
+    <string name="tag_sameday">Same Day</string>
+    <string name="tag_oneday">One Day</string>
+    <string name="tag_twoday">Two Day</string>
+    <string name="tag_threeday">Three Day</string>
+    <string name="btn_tag_next">Next</string>
+
+    <string name="desc_msgs_img_button">Select Photo</string>
+    <string name="desc_item_message_img_view">Image</string>
+
+    <string name="signed_in_tag">Signed In!</string>
+    <string name="cancel_sign_in_tag">Sign In Cancelled</string>
+    <string name="tag_same_day">Same Day</string>
+    <string name="tag_one_day">One Day</string>
+    <string name="tag_two_day">Two Day</string>
+    <string name="tag_three_day">Three Day</string>
+    <string name="tag_ok">OK</string>
+    <string name="tag_cancel">Cancel</string>
+    <string name="tag_first_run">First Run</string>
+    <string name="tag_john_doe">John Doe</string>
+    <string name="tag_how_are_you">hi man, how are you?</string>
+    <string name="tag_temp_time">11:40</string>
+    <string name="tag_fab_create_plan">Create new plan</string>
+    <string name="tag_enter_message">Enter message</string>
+    <string name="tag_add_members">Add members</string>
+    <string name="tag_user_name">User Name</string>
+    <string name="tag_save_user_name">Save user name</string>
+    <string name="tag_dialog_title">Dialog Title</string>
+    <string name="tag_hours">hours</string>
+    <string name="tag_minutes">minutes</string>
+    <string name="tag_message">Message</string>
+    <string name="tag_name">Name</string>
+    <string name="desc_app_name">Plan app name</string>
+    <string name="profile_lable">Profile info</string>
+    <string name="profile_info_text">Please provide your name</string>
+    <string name="username_hint">Type your name here</string>
+
+
+</resources>

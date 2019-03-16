@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.kontrol.plan.activities.UserNameActivity">
+
+    <ImageView
+        android:id="@+id/iv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/desc_app_name"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/profile_lable"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="@string/profile_info_text"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:padding="10dp"
+        android:layout_marginTop="50dp"
+        android:inputType="textCapWords"
+        android:hint="@string/username_hint"
+        android:backgroundTint="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/btn_save_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_tag_next"
+        android:contentDescription="@string/tag_save_user_name"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="16dp"
+        android:textColor="@color/text_color_white"
+        android:background="@color/colorAccent"/>
+
+</LinearLayout>
