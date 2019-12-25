@@ -7,9 +7,9 @@ import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.ContactsContract;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +21,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Map;
+
+import static android.app.Activity.RESULT_OK;
 
 public class AddMembersActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, ContactsCursorAdapter.ListItemClickListener {
 
@@ -41,6 +44,8 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mDatabaseReference;
 
+    ArrayList<String> uidlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,7 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
         mDatabaseReference = mFirebaseDatabase.getReference().child("user");
 
         addedContacts = new ArrayList<String>();
+        uidlist = new ArrayList<>();
 
         listView = (ListView)findViewById(R.id.lv_contacts_list);
 
@@ -116,9 +122,11 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
         switch (item.getItemId()) {
             case R.id.add_members_done:
                 Intent intent = new Intent();
-                intent.putStringArrayListExtra(ADDED_MEMBERS_KEY, addedContacts);
-                setResult(RESULT_OK, intent );
-                finish();
+                rotInHell(intent);
+//                intent.putStringArrayListExtra(ADDED_MEMBERS_KEY, addedContacts);
+//                intent.putStringArrayListExtra(ADDED_MEMBERS_KEY, uidlist);
+//                setResult(RESULT_OK, intent );
+//                finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -144,8 +152,8 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
     }
 
 //    @Override
-//    public void onListItemClickListener(final String selectedMember) {
-//        final String mem = formatNumber(selectedMember);
+//    public void onListItemClickListener(ArrayList<String> selectedMembers) {
+////        final String mem = formatNumber(selectedMember);
 //
 //
 //        //addedContacts = selectedMembers;
@@ -153,7 +161,7 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
 //            @Override
 //            public void onDataChange(DataSnapshot dataSnapshot) {
 //                Map<String, Object> temp = (Map<String, Object>) dataSnapshot.getValue();
-//                getUids(temp, mem );
+//                getUids(temp, selectedMembers.get(0) );
 //            }
 //
 //            @Override
@@ -172,7 +180,8 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
                 String uid = (String) singleUser.get("uid");
 
                 if(num2.equals(num)){
-                    addedContacts.add(uid);
+                    uidlist.add(uid);
+                    String test = "test";
                 }
             }
         }
@@ -190,10 +199,26 @@ public class AddMembersActivity extends AppCompatActivity implements LoaderManag
 
     @Override
     public void onListItemClickListener(ArrayList<String> selectedMembers) {
-       for(String temp : selectedMembers){
-           String aoa = temp;
-       }
+        addedContacts = selectedMembers;
 
+    }
 
+    private void rotInHell(Intent intent){
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Map<String, Object> temp = (Map<String, Object>) dataSnapshot.getValue();
+                getUids(temp, addedContacts.get(0) );
+
+                intent.putStringArrayListExtra(ADDED_MEMBERS_KEY, uidlist);
+                setResult(RESULT_OK, intent );
+                finish();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -3,9 +3,11 @@ package com.example.kontrol.plan.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import com.example.kontrol.plan.adapters.ContactsCursorAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -115,8 +117,6 @@ public class NewPlanActivity extends AppCompatActivity {
 
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.new_plan_menu, menu);
@@ -224,4 +224,6 @@ public class NewPlanActivity extends AppCompatActivity {
         final String time = sdf.format(date);
         return time;
     }
+
+
 }

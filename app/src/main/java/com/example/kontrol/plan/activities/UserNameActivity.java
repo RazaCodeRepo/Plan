@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,7 +39,7 @@ public class UserNameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_name);
         ButterKnife.bind(this);
 
-        new DisplayImageTask().execute(R.drawable.plan_image);
+        new DisplayImageTask().execute(R.drawable.plan);
 
         mUserNameEditText.addTextChangedListener(new TextWatcher() {
             @Override

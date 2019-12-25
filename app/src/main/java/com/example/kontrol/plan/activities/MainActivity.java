@@ -2,9 +2,9 @@ package com.example.kontrol.plan.activities;
 
 import android.content.Intent;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -75,8 +76,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ButterKnife.bind(this);
+
         setTitle(R.string.main_activity_title);
+
+        ButterKnife.bind(this);
 
         groupListView = (ListView) findViewById(R.id.lv_main_groupList);
 
@@ -121,13 +124,11 @@ public class MainActivity extends AppCompatActivity {
                     onSignedInInitialize(user.getDisplayName());
 
                 } else {
-
-
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setAvailableProviders(Arrays.asList(
+                                    .setAvailableProviders(Collections.singletonList(
                                             new AuthUI.IdpConfig.PhoneBuilder().build()))
                                     .build(),
                             RC_SIGN_IN);
@@ -136,19 +137,18 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-                Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("isFirstRun", true);
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+        .getBoolean("isFirstRun", true);
 
         if (isFirstRun) {
             //show start activity
-
             startActivityForResult(new Intent(MainActivity.this, UserNameActivity.class), RC_USER_NAME_ACTIVITY);
             Toast.makeText(MainActivity.this, getResources().getString(R.string.tag_first_run), Toast.LENGTH_LONG)
                     .show();
         }
 
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                .putBoolean("isFirstRun", false).commit();
+                .putBoolean("isFirstRun", false).apply();
     }
 
     @Override
@@ -159,9 +159,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, getResources().getString(R.string.signed_in_tag), Toast.LENGTH_SHORT).show();
 
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                phoneNumber = mFirebaseUser.getPhoneNumber();
-                uid = mFirebaseUser.getUid();
-
+                if (mFirebaseUser != null) {
+                    phoneNumber = mFirebaseUser.getPhoneNumber();
+                }
+                if (mFirebaseUser != null) {
+                    uid = mFirebaseUser.getUid();
+                }
 
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, getResources().getString(R.string.cancel_sign_in_tag), Toast.LENGTH_SHORT).show();
@@ -259,6 +262,4 @@ public class MainActivity extends AppCompatActivity {
         Intent startCreateNewGroupActivityIntent = new Intent(this, NewPlanActivity.class);
         startActivity(startCreateNewGroupActivityIntent);
     }
-
-
 }

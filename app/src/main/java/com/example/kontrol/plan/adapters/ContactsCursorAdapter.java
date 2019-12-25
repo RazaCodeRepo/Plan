@@ -85,6 +85,8 @@ public class ContactsCursorAdapter extends CursorAdapter {
                 } else {
                     mCheckbox.setChecked(true);
                     addedContacts.add(phoneNo);
+
+
                 }
             }
         });
@@ -113,7 +115,11 @@ public class ContactsCursorAdapter extends CursorAdapter {
 //
 //            }
 //        });
+
         mOnClickListener.onListItemClickListener(addedContacts);
+
+        String test = "hello world";
+
     }
 
 }
